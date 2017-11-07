@@ -22,7 +22,8 @@ def reg():
        user_dict={k:v[0] for k,v in dict(request.form).items()}   
        field=['username','name','password','phone','email','role','status']
        res=utils.get_one(table,field,user_dict)
-       if res['code']==0:
+       print 'res--->',res
+       if res['code']==1:
            result=utils.insert(table,field,user_dict)
            util.WriteLog("register","/tmp/info.log").info("register:%s"%user_dict["username"])
            return json.dumps(result)
