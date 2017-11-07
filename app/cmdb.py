@@ -160,7 +160,7 @@ def cabinet_delete():
 server_table="server"
 server_field=['id','hostname','lan_ip','wan_ip','cabinet_id','op','phone']
 
-# 机柜列表
+# 机器列表
 @app.route('/server/')
 def server():
    if not session:
@@ -175,7 +175,7 @@ def server():
    result=data['msg']
    return render_template("server.html",res=session,result=result)
 
-# 添加机柜,
+# 添加机器,
 @app.route('/server_add/',methods=['GET','POST'])
 def server_add():
     if not session:
@@ -233,4 +233,17 @@ def server_delete():
     util.WriteLog("server_delete","/tmp/info.log").info("server_delete:%s"%session['username'])
     data=utils.delete(server_table,uid)
     return json.dumps(data)
+
+# server接口
+@app.route('/api/',methods=['GET','POST'])
+def api():
+    if request.method=='POST':
+        user=request.get_json()
+        server_field=['hostname','lan_ip','wan_ip','cabinet_id','op','phone']
+        if user.has_key('hostname'):
+            data=utils.insert(server_table,server_field,user)
+            return json.dumps(data)
+        else:
+           data={'code':1,'errmsg':'username or password is not null'}
+           return json.dumps(data)
 
