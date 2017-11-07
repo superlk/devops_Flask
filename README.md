@@ -44,6 +44,7 @@
 ├── util.py                   # 日志模块
 ├── utils.py                  # 功能模块
 ├── get_mem.py                # 获取内存模块
+├── get_server.py             # 自动获取主机信息添加到server
 
 
 
