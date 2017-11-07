@@ -1,0 +1,12 @@
+ansible                            1.9.1           
+Flask                              0.12.2     
+Flask-JSONRPC                      0.3.1      
+Flask-Mail                         0.9.1      
+Flask-RESTful                      0.3.6      
+Jinja2                             2.9.6      
+MySQL-python                       1.2.5      
+paramiko                           2.3.1            
+psutil                             5.4.0          
+requests                           2.18.4           
+virtualenv                         15.1.0     
+  
